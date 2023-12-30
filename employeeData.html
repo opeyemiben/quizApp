@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+</head>
+<body>
+
+    <h1>Employee Information</h1>
+
+    <p>Name: <span id="employeeName"></span></p>
+    <p>Age: <span id="employeeAge"></span></p>
+
+    <h2>Cars</h2>
+    <ul id="carList"></ul>
+
+    <script>
+        const employee = {
+            name: "Bright",
+            age: 20,
+            cars: [
+                {name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+                {name:"BMW", models:["320", "X3", "X5"]},
+                {name:"Fiat", models:["500", "Panda"]}
+            ]
+        };
+
+        document.getElementById("employeeName").textContent = employee.name;
+        document.getElementById("employeeAge").textContent = employee.age;
+
+        const carList = document.getElementById("carList");
+        employee.cars.forEach(car => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `Car: ${car.name}, Models: ${car.models.join(", ")}`;
+            carList.appendChild(listItem);
+        });
+    </script>
+
+</body>
+</html>
